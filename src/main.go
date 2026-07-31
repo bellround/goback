@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"mccomack/goback/src/httptest"
 	"mccomack/goback/src/idkwhatthisiscalledmaybemodule"
 )
 
@@ -18,4 +19,5 @@ func main() {
 	fmt.Println(a)
 
 	idkwhatthisiscalledmaybemodule.Goback()
+	httptest.RunHTTP()
 }
