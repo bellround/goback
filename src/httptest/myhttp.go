@@ -2,15 +2,19 @@ package httptest
 
 import (
 	"fmt"
-	"net/http"
 	"time"
+
+	"github.com/gofiber/fiber/v3"
 )
 
-func greet(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hello World! %s", time.Now())
+func greet(c fiber.Ctx) {
+	c.SendString(fmt.Sprintf("Hello World! %s", time.Now()))
 }
 
-func RunHTTP() {
-	http.HandleFunc("/", greet)
-	http.ListenAndServe(":8080", nil)
+func RunHTTP() error {
+	app := fiber.New()
+
+	app.Get("/", greet)
+
+	return app.Listen(":8080")
 }

@@ -19,5 +19,9 @@ func main() {
 	fmt.Println(a)
 
 	idkwhatthisiscalledmaybemodule.Goback()
-	httptest.RunHTTP()
+	err = httptest.RunHTTP()
+
+	if err != nil {
+		log.Panicln(err)
+	}
 }
