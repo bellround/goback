@@ -9,8 +9,8 @@ import (
 	"syscall"
 	"time"
 
-	"mccomack/goback/httptest"
-	"mccomack/goback/idkwhatthisiscalledmaybemodule"
+	"github.com/mccomack/goback/httptest"
+	"github.com/mccomack/goback/idkwhatthisiscalledmaybemodule"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module mccomack/goback
+module github.com/mccomack/goback
 
 go 1.26.5
 
