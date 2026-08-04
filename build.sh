@@ -1,4 +1,4 @@
 #!/bin/bash
 
-go build -o ./bin/program ./src/
+go build -o ./bin/program .
 
