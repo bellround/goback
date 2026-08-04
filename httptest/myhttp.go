@@ -20,6 +20,7 @@ func New() *Server {
 	app := fiber.New()
 
 	app.Get("/", greet)
+	app.Get("/json", jsontest)
 
 	return &Server{app: app}
 }
