@@ -9,6 +9,8 @@ import (
 	"syscall"
 	"time"
 
+	logmgr "github.com/mccomack/goback/shared/log"
+
 	"github.com/mccomack/goback/httptest"
 	"github.com/mccomack/goback/idkwhatthisiscalledmaybemodule"
 )
@@ -16,8 +18,25 @@ import (
 func main() {
 	fmt.Println("Hello, World!")
 
+	manager, err := logmgr.Get()
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	defer func() {
+		err = manager.Close()
+
+		if err != nil {
+			log.Fatalln(err)
+		}
+	}()
+
+	logger := manager.New("main")
+
+	logger.Log("Hello, World!", nil)
+
 	var a string
-	_, err := fmt.Scanln(&a)
+	_, err = fmt.Scanln(&a)
 	if err != nil {
 		log.Panicln(err)
 	}
